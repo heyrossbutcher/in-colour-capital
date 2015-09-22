@@ -1,5 +1,5 @@
 <footer>
-  <div class="container">
+  <div class="wrapper">
     <p>&copy; In Colour Capital <?php echo date('Y'); ?></p>
   </div>
 </footer>
