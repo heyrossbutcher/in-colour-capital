@@ -64,10 +64,80 @@
                         <h2><?php the_title(); ?></h2>
                         <?php //pre_r($client); ?>
                         
-                        <?php $get_count = count($client_info, COUNT_RECURSIVE); ?>
-                        <?php //pre_r($get_count); ?>
 
+
+                        <!-- /////////////////////// -->
+                        <!-- This is the row factory -->
+                        <!-- /////////////////////// -->
                         <?php //INCREMENTS OF 29 TO CHECK FOR THE NUMBER OF POSTS ?>
+                        <?php $get_count = count($client_info, COUNT_RECURSIVE); ?>
+
+                        <!-- Iterate over the array and pull out the rows -->
+                        <?php foreach ($client as $client_data) {
+
+                            //This finds the row name
+                            $which_row = $client_data['select_a_row'];
+
+                            //This create the variable to get correct row info
+                            $get_the_row = $client_data[$which_row];
+
+                                // Iterate over the array and pull out the embedded rows data
+                                foreach ($get_the_row as $row_data) {
+                                    $get_posts_data = $row_data;
+                                    //pre_r($row_data);
+                                }
+                            }
+                        ?>
+
+                        <!-- //////////////////////////////////////////////////////////// -->
+                        <!-- This is checking to see if the number of clients is under 5 -->
+                        <!-- //////////////////////////////////////////////////////////// -->
+                        <?php if( $get_count <= 140 ) : ?>
+
+                             <?php 
+                              foreach ($client as $client_data) {
+
+                                  //This finds the row name
+                                  $which_row = $client_data['select_a_row'];
+
+                                  //This create the variable to get correct row info
+                                  $get_the_row = $client_data[$which_row];
+
+                                      // Iterate over the array and pull out the embedded rows data
+                                      foreach ($get_the_row as $row_data) {
+                                          $get_posts_data = $row_data;
+                                          pre_r($row_data);
+                                      }
+                                  }
+                            ?>
+
+                        <?php else : ?>
+                            
+                             <?php 
+                              foreach ($client as $client_data) {
+
+                                  //This finds the row name
+                                  $which_row = $client_data['select_a_row'];
+
+
+                                  if( $which_row == 'center_blank' ) 
+                                  {
+                                    //This create the variable to get correct row info
+                                    $get_the_row = $client_data['center_blank'];
+
+                                    // Iterate over the array and pull out the embedded rows data
+                                    foreach ($get_the_row as $row_data) {
+                                        $get_posts_data = $row_data;
+                                        pre_r($row_data);
+                                    }
+                                }
+                              }
+                                  
+                            ?>
+                            
+                            
+                        <?php endif ?>
+
 
 
                     <?php endwhile; // end of the loop. ?>
