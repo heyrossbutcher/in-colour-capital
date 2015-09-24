@@ -500,15 +500,55 @@ section {
 
 .portfolio {
   background: white;
-  color: black;
-  height: 1000px; }
+  color: black; }
 
 .wrapper {
   max-width: 1175px;
   margin: 0 auto; }
 
+.client_container {
+  float: left;
+  width: 31.333%;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative; }
+  .client_container .client_writeup {
+    position: absolute;
+    top: 3.5%;
+    left: 3.5%;
+    width: 50%;
+    padding: 50px 15px 15px 15px;
+    background: black;
+    color: white; }
+
+.client_container:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+  /* initial ratio of 1:1*/ }
+
+.all_rows {
+  width: 100%; }
+  .all_rows .client_container {
+    width: 47.5%; }
+  .all_rows :nth-child(2n) {
+    margin-left: 5%;
+    margin-bottom: 5%; }
+
+.left_blank .client_container, .right_blank .client_container, .center_blank .client_container, .full_row .client_container {
+  margin-bottom: 3%; }
+
+.left_blank :nth-child(n+2), .right_blank :nth-child(n+2), .center_blank :nth-child(n+2), .full_row :nth-child(n+2) {
+  margin-left: 3%; }
+
+.left_blank :nth-child(1) {
+  margin-left: 34.333%; }
+
+.center_blank :nth-child(2) {
+  margin-left: 34.333%; }
+
 footer {
-  display: none;
   background: black;
   margin: 0;
   padding: 0; }

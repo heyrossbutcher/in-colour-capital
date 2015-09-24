@@ -266,3 +266,24 @@ function get_post_parent($post) {
 		return $post->ID;
 	}
 }
+
+function define_rows($find_the_row, $name_the_row){
+
+    echo '<div class="'.$name_the_row.' clearfix">';
+	
+		// Iterate over the array and pull out the embedded rows data
+		foreach ($find_the_row as $row_data) {
+		    $get_posts_data = $row_data;
+		    //pre_r($get_posts_data);
+		    //
+		    echo '<div class="client_container" style="background-image: url('.$get_posts_data['image']['sizes']['large'].')">';
+		    echo '<div class="client_writeup">';
+		    echo '<h2>'.$get_posts_data['title'].'</h2>';
+		    echo '<p>'.$get_posts_data['description'].'</p>';
+		    echo '</div>';
+		    echo '</div>';
+		}
+
+    echo '</div>';
+
+}

@@ -55,7 +55,7 @@
                   'post_type' => 'client',//we only want about pieces
                   'posts_per_page' => -1
                 )) ?> 
-                <div class="wrapper">
+                <div class="wrapper clearfix">
                     <?php if($latestPosts->have_posts()) while($latestPosts->have_posts()) : $latestPosts->the_post() ?>
 
                         <?php $client = get_field('create_a_row');  ?>
@@ -94,8 +94,10 @@
                         <!-- //////////////////////////////////////////////////////////// -->
                         <?php if( $get_count <= 140 ) : ?>
 
-                             <?php 
-                              foreach ($client as $client_data) {
+                            <?php 
+                            echo '<div class="all_rows">';
+                              
+                            foreach ($client as $client_data) {
 
                                   //This finds the row name
                                   $which_row = $client_data['select_a_row'];
@@ -103,45 +105,63 @@
                                   //This create the variable to get correct row info
                                   $get_the_row = $client_data[$which_row];
 
+
                                       // Iterate over the array and pull out the embedded rows data
                                       foreach ($get_the_row as $row_data) {
                                           $get_posts_data = $row_data;
-                                          pre_r($row_data);
+                                          //pre_r($row_data);
+                                          echo '<div class="client_container" style="background-image: url('.$get_posts_data['image']['sizes']['large'].')">';
+                                          echo '<div class="client_writeup">';
+                                          echo '<h2>'.$get_posts_data['title'].'</h2>';
+                                          echo '<p>'.$get_posts_data['description'].'</p>';
+                                          echo '</div>';
+                                          echo '</div>';
                                       }
                                   }
+                              echo '</div>';
                             ?>
 
                         <?php else : ?>
-                            
-                             <?php 
-                              foreach ($client as $client_data) {
+
+                           <?php 
+                                foreach ($client as $client_data) {
 
                                   //This finds the row name
                                   $which_row = $client_data['select_a_row'];
 
+                                  if( $which_row == 'full_row' ) {
+                                      //This create the variable to get correct row info
+                                      $get_the_row = $client_data['full_row'];
+                                      //This builds the client squares
+                                      define_rows($get_the_row, $which_row);
 
-                                  if( $which_row == 'center_blank' ) 
-                                  {
-                                    //This create the variable to get correct row info
-                                    $get_the_row = $client_data['center_blank'];
+                                  } else if ( $which_row == 'left_blank' ) {
+                                      $get_the_row = $client_data['left_blank'];
+                                      //
+                                      define_rows($get_the_row, $which_row);
 
-                                    // Iterate over the array and pull out the embedded rows data
-                                    foreach ($get_the_row as $row_data) {
-                                        $get_posts_data = $row_data;
-                                        pre_r($row_data);
-                                    }
-                                }
-                              }
-                                  
-                            ?>
-                            
-                            
+                                  } else if ( $which_row == 'center_blank' ) {
+                                      $get_the_row = $client_data['center_blank'];
+                                      //
+                                      define_rows($get_the_row, $which_row);
+
+                                  } else if ( $which_row == 'right_blank' ) {
+                                      $get_the_row = $client_data['right_blank'];
+                                      //
+                                      define_rows($get_the_row, $which_row);
+                                        
+                                  } 
+                              }     
+
+                           ?>
+
+                       
                         <?php endif ?>
 
-
+    
 
                     <?php endwhile; // end of the loop. ?>
-                </div>
+                </div><!-- End of Wrapper -->
             </section><!-- End of Portfilo section -->
 
         </div><!-- End of main-wrapper -->
