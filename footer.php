@@ -1,7 +1,7 @@
 <footer>
   <div class="wrapper clearfix">
-	<h2>Contact</h2>
   	<div class="credentials clearfix">
+	<h2>Contact</h2>
 
   		<?php $latestPosts = new wp_query(array(
   		  'post_type' => 'credential',//we only want about pieces

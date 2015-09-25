@@ -278,8 +278,10 @@ function define_rows($find_the_row, $name_the_row){
 		    //
 		    echo '<div class="client_container" style="background-image: url('.$get_posts_data['image']['sizes']['large'].')">';
 		    echo '<div class="client_writeup">';
-		    echo '<h2>'.$get_posts_data['title'].'</h2>';
+		    echo '<div class="write_up">';
+		    echo '<h3>'.$get_posts_data['title'].'</h3>';
 		    echo '<p>'.$get_posts_data['description'].'</p>';
+		    echo '</div>';
 		    echo '</div>';
 		    echo '</div>';
 		}

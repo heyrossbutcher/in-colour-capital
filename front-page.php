@@ -12,26 +12,26 @@
                 <div class="wrapper">
 
                     <div class="animation-holder">
-                    	<img src="<?php bloginfo( 'template_directory' ); ?>/img/video-placeholder.jpg" width="715" height="209" alt="In Colour Capital">
+                    	<img src="<?php bloginfo( 'template_directory' ); ?>/img/video-placeholder.jpg" alt="In Colour Capital">
+
                     </div>
 
                 </div>
             </section><!-- End of Masthead section -->
 
             <section class="intro">
-                <div class="intro">
                     <?php $latestPosts = new wp_query(array(
                       'post_type' => 'intro',//we only want about pieces
                       'posts_per_page' => 1
                     )) ?> 
                     <div class="wrapper">
                         <?php if($latestPosts->have_posts()) while($latestPosts->have_posts()) : $latestPosts->the_post() ?>
-
-                            <p><?php the_content(); ?></p>
+                            <div class="centre_wrapper">
+                              <?php the_content(); ?>
+                            </div>
 
                         <?php endwhile; // end of the loop. ?>
                     </div>
-                </div>
             </section>
 
             <section class="aboutUs">
@@ -43,8 +43,10 @@
 
                     <?php if($latestPosts->have_posts()) while($latestPosts->have_posts()) : $latestPosts->the_post() ?>
 
-                        <p><?php the_title(); ?></p>
-                        <p><?php the_content(); ?></p>
+                        <h2><?php the_title(); ?></h2>
+                        <div class="centre_wrapper">
+                          <?php the_content(); ?>
+                        </div>
 
                     <?php endwhile; // end of the loop. ?>
                 </div>
@@ -112,8 +114,10 @@
                                           //pre_r($row_data);
                                           echo '<div class="client_container" style="background-image: url('.$get_posts_data['image']['sizes']['large'].')">';
                                           echo '<div class="client_writeup">';
-                                          echo '<h2>'.$get_posts_data['title'].'</h2>';
+                                          echo '<div class="write_up">';
+                                          echo '<h3>'.$get_posts_data['title'].'</h3>';
                                           echo '<p>'.$get_posts_data['description'].'</p>';
+                                          echo '</div>';
                                           echo '</div>';
                                           echo '</div>';
                                       }

@@ -7,10 +7,8 @@ gulp.task('default', ['styles', 'watch']);
 
 gulp.task('styles', function() {
 	return gulp.src('sass/**/*.scss')
-		.pipe(sass({
-			'sourcemap=none': true,
-			errLogToConsole: true
-		}))
+		.pipe(sass().on('error', sass.logError))
+		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 6-8', 'opera 12.1', 'Firefox > 20', 'iOS 7'))
 		.pipe(concat('style.css'))
 		.pipe(gulp.dest('.'));
 });
