@@ -8,12 +8,11 @@
 <div class="main">
         <div class="main-wrapper">
 
-            <section class="masthead">
+            <section class="masthead" id="masthead">
                 <div class="wrapper">
 
                     <div class="animation-holder">
-                    	<img src="<?php bloginfo( 'template_directory' ); ?>/img/video-placeholder.jpg" alt="In Colour Capital">
-
+                    <img src="<?php bloginfo( 'template_directory' ); ?>/img/in-color-digital.svg" alt="">
                     </div>
 
                 </div>
@@ -34,7 +33,7 @@
                     </div>
             </section>
 
-            <section class="aboutUs">
+            <section class="aboutUs" id="about">
                 <?php $latestPosts = new wp_query(array(
                   'post_type' => 'about',//we only want about pieces
                   'posts_per_page' => 1
@@ -52,7 +51,7 @@
                 </div>
             </section><!-- End of About section -->
 
-            <section class="portfolio">
+            <section class="portfolio" id="portfolio">
                 <?php $latestPosts = new wp_query(array(
                   'post_type' => 'client',//we only want about pieces
                   'posts_per_page' => -1

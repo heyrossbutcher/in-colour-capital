@@ -8,7 +8,7 @@
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
   <?php // Load our CSS ?>
-  <link rel="stylesheet" type="text/css" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/style.css" />
 
   <?php wp_head(); ?>
 </head>
@@ -17,7 +17,7 @@
 <body <?php body_class(); ?>>
 
 <header>
-  <div class="container">
+  <div class="container"  id="top">
     <!-- <h1>
       <a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
         <?php bloginfo( 'name' ); ?>
@@ -25,6 +25,12 @@
     </h1> -->
     
     <div class="nav-wrapper clearfix">
+      <?php wp_nav_menu( array(
+        'container' => false,
+        'theme_locations' => 'primary'
+      )); ?>
+    </div>
+    <div class="mobile-nav-wrapper clearfix">
       <?php wp_nav_menu( array(
         'container' => false,
         'theme_locations' => 'primary'

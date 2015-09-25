@@ -1,4 +1,4 @@
-<footer>
+<footer id="contact">
   <div class="wrapper clearfix">
   	<div class="credentials clearfix">
 	<h2>Contact</h2>
